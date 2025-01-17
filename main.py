@@ -12,8 +12,8 @@ def generate_fuel_bill_with_logo_png(output_path, logo_path, date, time, fuel_ra
     draw = ImageDraw.Draw(img)
 
     # Define fonts
-    font_path = "DejaVuSans-Bold.ttf"  # Path to a font that supports Unicode
-    font_title = ImageFont.truetype(font_path, 20)
+    font_path = "DejaVuSans.ttf"  # Path to a font that supports Unicode
+    font_title = ImageFont.truetype(font_path, 18)
     font_text = ImageFont.truetype(font_path, 14)
 
     # Add logo

@@ -2,7 +2,7 @@ import calendar
 import math
 import random
 
-from receipt_generator import generate_fuel_bill_with_logo_png
+from main import generate_fuel_bill_with_logo_png
 
 
 def generate_random_day(year, month, from_date, to_date=None):
