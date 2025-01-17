@@ -2,7 +2,7 @@ import calendar
 import math
 import random
 
-from receipt_generator import generate_fuel_bill_with_logo_png
+from app.receipt_generator import generate_fuel_bill_with_logo_png
 
 
 def generate_random_day(year, month, from_date, to_date=None):
@@ -34,7 +34,7 @@ def generate_body(YEAR=2024, START_MONTH=1, END_MONTH=12, VEHICLE_NO="RJ14UE5201
         12: [89.88, 91.94, 90.04]
     }
 
-    logo_path = "BPCL_logo.jpeg"
+    logo_path = "resources/BPCL_logo.jpeg"
 
     receipt_no = random.randint(RECEIPT_NO_START, 10 ** (math.floor(math.log10(abs(RECEIPT_NO_START))) + 1) - 1)
 
@@ -67,5 +67,5 @@ def generate_body(YEAR=2024, START_MONTH=1, END_MONTH=12, VEHICLE_NO="RJ14UE5201
             receipt_no = random.randint(receipt_no, receipt_no + random.randint(90003, 300000))
 
 
-generate_body(YEAR=2024, START_MONTH=4, END_MONTH=12, VEHICLE_NO="RJ14UE5201", OUTPUT_PATH="fuel_bills",
+generate_body(YEAR=2024, START_MONTH=4, END_MONTH=12, VEHICLE_NO="RJ14UE5201", OUTPUT_PATH="/tmp/fuel_bills",
               RECEIPT_NO_START=573992422)
