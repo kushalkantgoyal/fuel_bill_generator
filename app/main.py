@@ -18,7 +18,8 @@ def generate_random_day(year, month, from_date, to_date=None):
 # Example usage:
 
 def generate_body(YEAR=2024, START_MONTH=1, END_MONTH=12, VEHICLE_NO="RJ14UE5201", OUTPUT_PATH="fuel_bills",
-                  RECEIPT_NO_START=573992422):
+                  RECEIPT_NO_START=573992422, title_line_1="Welcome To BPCL", title_line_2="SHARMA BROTHERS",
+                  title_line_3="TONK ROAD JAIPUR"):
     month_to_opening_highest_closing_price: dict = {
         1: [90.04, 91.94, 89.88],
         2: [89.88, 91.94, 90.04],
@@ -61,11 +62,15 @@ def generate_body(YEAR=2024, START_MONTH=1, END_MONTH=12, VEHICLE_NO="RJ14UE5201
                 vehicle_no=VEHICLE_NO,
                 mode="Cash",
                 product="DIESEL",
-                receipt_no=receipt_no
+                receipt_no=receipt_no,
+                title_line_1=title_line_1,
+                title_line_2=title_line_2,
+                title_line_3=title_line_3
             )
             i += 1
             receipt_no = random.randint(receipt_no, receipt_no + random.randint(90003, 300000))
 
 
 generate_body(YEAR=2024, START_MONTH=4, END_MONTH=12, VEHICLE_NO="RJ14UE5201", OUTPUT_PATH="/tmp/fuel_bills",
-              RECEIPT_NO_START=573992422)
+              RECEIPT_NO_START=573992422, title_line_1="Welcome To BPCL", title_line_2="SHARMA BROTHERS",
+              title_line_3="TONK ROAD JAIPUR")

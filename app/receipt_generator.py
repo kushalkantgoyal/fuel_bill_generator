@@ -2,7 +2,9 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 
 
-def generate_fuel_bill_with_logo_png(output_path, logo_path, date, time, fuel_rate, volume, vehicle_no, mode, product,receipt_no):
+def generate_fuel_bill_with_logo_png(output_path, logo_path, date, time, fuel_rate, volume, vehicle_no, mode, product,
+                                     receipt_no, title_line_1="Welcome To BPCL", title_line_2="SHARMA BROTHERS",
+                                     title_line_3="TONK ROAD JAIPUR"):
     # Calculate total amount
     amount = fuel_rate * volume
 
@@ -28,22 +30,19 @@ def generate_fuel_bill_with_logo_png(output_path, logo_path, date, time, fuel_ra
     # Add header
     y_position = 120  # Adjust below the logo
 
-    text = "Welcome To BPCL"
-    text_bbox = draw.textbbox((0, 0), text, font=font_title)  # Get the bounding box of the text
+    text_bbox = draw.textbbox((0, 0), title_line_1, font=font_title)  # Get the bounding box of the text
     text_width = text_bbox[2] - text_bbox[0]
-    draw.text(((img_width - text_width) / 2, y_position), text, font=font_title, fill="black")
+    draw.text(((img_width - text_width) / 2, y_position), title_line_1, font=font_title, fill="black")
 
     y_position += 25
-    text = "SHARMA BROTHERS"
-    text_bbox = draw.textbbox((0, 0), text, font=font_title)  # Get the bounding box of the text
+    text_bbox = draw.textbbox((0, 0), title_line_2, font=font_title)  # Get the bounding box of the text
     text_width = text_bbox[2] - text_bbox[0]
-    draw.text(((img_width - text_width) / 2, y_position), text, font=font_title, fill="black")
+    draw.text(((img_width - text_width) / 2, y_position), title_line_2, font=font_title, fill="black")
 
     y_position += 25
-    text = "TONK ROAD JAIPUR"
-    text_bbox = draw.textbbox((0, 0), text, font=font_title)  # Get the bounding box of the text
+    text_bbox = draw.textbbox((0, 0), title_line_3, font=font_title)  # Get the bounding box of the text
     text_width = text_bbox[2] - text_bbox[0]
-    draw.text(((img_width - text_width) / 2, y_position), text, font=font_title, fill="black")
+    draw.text(((img_width - text_width) / 2, y_position), title_line_3, font=font_title, fill="black")
 
     # Add receipt details
     y_position += 40
